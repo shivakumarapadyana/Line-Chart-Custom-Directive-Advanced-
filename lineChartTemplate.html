@@ -1,0 +1,33 @@
+
+<div class="container">
+
+    <div ng-attr-id="{{getClass()}}" ng-show="getClass()==1" >
+
+        <div ng-if="$parent.tempList.length>0" class="well container" style="text-align:center;color:#2a89ff;">
+            Click to show Hidden chart(s) : {{$scope.tl}}
+        <span style="cursor: pointer;color:black" ng-repeat="a in tl" ng-click="showOrHideChart(a,'show')">
+            {{a}}
+        </span>
+        </div>
+    </div>
+
+    <div style="text-align:center;"  ng-show="showOrHideChart(id,'default')" >
+        <div   style="color:white;display: inline-block;margin:20px;background-color: #8BC199;border-radius:10px;padding:20px;position: relative">
+            <div style="text-align: center;color:#2a89ff;font-size:16px;font-weight: 800;">
+                {{chartSet.dateRange}}
+            </div>
+            <div style="text-align:center">
+                <canvas class="{{id1}}" id="{{id}}" width="{{width}}" height="{{height}}"></canvas>
+            </div>
+            <div style="text-align: center;color:#2a89ff;font-size:16px;font-weight: 800;">
+                {{chartSet.sensorName}}
+            </div>
+            <div style="position: absolute; right: 10px; top:5px;cursor: pointer;color:#2a89ff;font-size:16px;font-weight: 800;"
+                 ng-click="showOrHideChart(id,'hide')">
+                X
+            </div>
+        </div>
+
+    </div>
+
+</div>
